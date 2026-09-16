@@ -182,10 +182,7 @@ class FileGenerator:
         runwcsim = "" if self.cfg.runWCSim else "#"
         runmdt = "" if self.cfg.runMDT else "#"
         runfq = "" if self.cfg.runFQ else "#"
-        if self.cfg.wcsim_build_dir == "opt/WCSim/build":
-            sourcePath = "/opt/entrypoint.sh"
-        else:
-            sourcePath = self.cfg.wcsim_build_dir+"/this_wcsim.sh"
+        sourcePath = self.cfg.wcsim_build_dir+"/this_wcsim.sh"
 
         with open("template/run.sh", 'r') as f:
             shTemplate = string.Template(f.read())
